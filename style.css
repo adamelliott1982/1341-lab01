@@ -17,18 +17,28 @@ p{
     margin-bottom: 20px;
 }
 
+
+
 body{
     background: steelblue;
     color: white;
     position: relative;
-
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+        'nav'
+        'header'
+        'main'
+        'footer'
+    ;
 }
 
-header{
-    font-size: 2rem;
-}
+
+
+
 
 nav{
+    grid-area: nav;
     background: rgb(196, 29, 0);
     height: 10vh;
     width: 100vw;
@@ -51,29 +61,36 @@ nav ul li a{
     font-size: 2rem;
     text-decoration: none;
 }
+nav ul li a:hover{
+    color: rgb(187, 187, 187);
+}
 
 header{
     background: grey;
     text-align: center;
     padding: 20px;
     margin-top: 10vh;
+    font-size: 2rem;
+    grid-area: header;
 }
 
+
+
 main{
+    grid-area: main;
     padding: 50px;
-    min-height: 80vh;
-    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        'article article article aside';
+    gap: 2rem;
 }
 article{
+    grid-area: article;
     background: rgba(255, 255, 255, 0.5);
     color: black;
     font-size: 1.5rem;
-    position: absolute;
-    left: 0;
-    width: 80vw;
-    min-height: 100%;
     padding: 50px;
-    margin: 20px;
     border-radius: 20px;
     box-shadow: 0 2px 10px black;
 }
@@ -91,15 +108,11 @@ article ol{
 
 
 aside{
+    grid-area: aside;
     font-size: 1.25rem;
-    position: absolute;
-    right: 0;
     background-image: linear-gradient(180deg,white, grey);
     color: black;
-    width: 15vw;
-    min-height: 100%;
     padding: 20px;
-    margin: 20px;
     border-radius: 20px;
     box-shadow: 0 2px 10px black;
 }
@@ -108,14 +121,16 @@ aside p{
 }
 
 footer{
+    grid-area: footer;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.25rem;
     background: rgb(196, 29, 0);
-    width: 100vw;
     height: 10vh;
-    margin-top: 20vh;
+}
+footer p{
+    transform: translateY(25%);
 }
 
 
@@ -141,26 +156,33 @@ footer{
 #gallery img:hover{
     transform: scale(1.25);
     transition: transform .5s ease;
+    box-shadow: -5px 5px 10px black;
 }
 
 
-#resource-main h2{
+
+/* RESOURCES */
+
+#resources-main{
+    display: block;
+}
+#resources-main h2{
     font-size: 3rem;
 }
 
-#resource-main ol{
+#resources-main ol{
     font-size: 2rem;
     list-style-position: inside;
 }
-#resource-main a{
+#resources-main a:link{
     color: black;
     font-size: 3rem;
     text-decoration: none;
 }
 
-#resource-main a:visited{
+#resources-main a:visited{
     color: rgb(136, 27, 27);
 }
-#resource-main a:hover{
+#resources-main a:hover{
     color: rgb(196, 196, 196);
 }
